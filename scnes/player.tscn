@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwih44cg0g7yi"]
+
+[ext_resource type="Script" uid="uid://bhkd5rq265b15" path="res://scripts/player.gd" id="1_6fwmd"]
+[ext_resource type="Texture2D" uid="uid://dtgd175p3vujk" path="res://icon.svg" id="1_wog5d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wog5d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyr13"]
+albedo_texture = ExtResource("1_wog5d")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_yi1ki"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_6fwmd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wog5d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_iyr13")
+mesh = SubResource("QuadMesh_yi1ki")
+
+[node name="camera_mount" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="camera_mount"]
+transform = Transform3D(1, 0, 0, 0, 0.798636, 0.601815, 0, -0.601815, 0.798636, 0, 6.75, 9.005)
+fov = 45.0
